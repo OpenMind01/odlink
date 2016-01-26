@@ -1,0 +1,822 @@
+@font-face {
+  font-family: "fontawesome-webfont";
+  src: url('../fonts/fontawesome-webfont.eot') format('embedded-opentype'), url('../fonts/fontawesome-webfont.ttf') format('truetype'), url('../fonts/fontawesome-webfont.otf') format('opentype'), url('../fonts/fontawesome-webfont.svg') format('svg'), url('../fonts/fontawesome-webfont.woff') format('woff');
+}
+
+@font-face {
+  font-family: "IdealistSans";
+  src: url('../fonts/IdealistSans.eot') format('embedded-opentype'), url('../fonts/IdealistSans.ttf') format('truetype'), url('../fonts/IdealistSans.otf') format('opentype'), url('../fonts/IdealistSans.svg') format('svg'), url('../fonts/IdealistSans.woff') format('woff');
+}
+
+@font-face {
+  font-family: "IdealistSans-Light";
+  src: url('../fonts/IdealistSans-Light.eot') format('embedded-opentype'), url('../fonts/IdealistSans-Light.ttf') format('truetype'), url('../fonts/IdealistSans-Light.otf') format('opentype'), url('../fonts/IdealistSans-Light.svg') format('svg'), url('../fonts/IdealistSans-Light.woff') format('woff');
+}
+
+@font-face {
+  font-family: "PT_Sans-Web-Regular";
+  src: url('../fonts/PT_Sans-Web-Regular.eot') format('embedded-opentype'), url('../fonts/PT_Sans-Web-Regular.ttf') format('truetype'), url('../fonts/PT_Sans-Web-Regular.otf') format('opentype'), url('../fonts/PT_Sans-Web-Regular.svg') format('svg'), url('../fonts/PT_Sans-Web-Regular.woff') format('woff');
+}
+
+/* BASIC STYLE START */
+/* line 48, ../scss/style.scss */
+body {
+  font: 17px "IdealistSans";
+  background: whitesmoke;
+  /* Old browsers */
+  /* IE9 SVG, needs conditional override of 'filter' to 'none' */
+  background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPGxpbmVhckdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIxMDAlIiB5Mj0iMCUiPgogICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iI2Y1ZjVmNSIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjUwJSIgc3RvcC1jb2xvcj0iI2Y1ZjVmNSIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjUwJSIgc3RvcC1jb2xvcj0iI2ViZTllOSIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiNlYmU5ZTkiIHN0b3Atb3BhY2l0eT0iMSIvPgogIDwvbGluZWFyR3JhZGllbnQ+CiAgPHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEiIGhlaWdodD0iMSIgZmlsbD0idXJsKCNncmFkLXVjZ2ctZ2VuZXJhdGVkKSIgLz4KPC9zdmc+);
+  background: -moz-linear-gradient(left, whitesmoke 0%, whitesmoke 50%, #ebe9e9 50%, #ebe9e9 100%);
+  /* FF3.6+ */
+  background: -webkit-gradient(linear, left top, right top, color-stop(0%, whitesmoke), color-stop(50%, whitesmoke), color-stop(50%, #ebe9e9), color-stop(100%, #ebe9e9));
+  /* Chrome,Safari4+ */
+  background: -webkit-linear-gradient(left, whitesmoke 0%, whitesmoke 50%, #ebe9e9 50%, #ebe9e9 100%);
+  /* Chrome10+,Safari5.1+ */
+  background: -o-linear-gradient(left, whitesmoke 0%, whitesmoke 50%, #ebe9e9 50%, #ebe9e9 100%);
+  /* Opera 11.10+ */
+  background: -ms-linear-gradient(left, whitesmoke 0%, whitesmoke 50%, #ebe9e9 50%, #ebe9e9 100%);
+  /* IE10+ */
+  background: linear-gradient(to right, #f5f5f5 0%, #f5f5f5 50%, #ebe9e9 50%, #ebe9e9 100%);
+  /* W3C */
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#f5f5f5', endColorstr='#ebe9e9',GradientType=1 );
+  /* IE6-8 */
+}
+
+/* line 63, ../scss/style.scss */
+h1, h2, h3, h4 {
+  margin: 0;
+}
+
+/* line 67, ../scss/style.scss */
+h1 {
+  font-weight: 300;
+  font-size: 36px;
+}
+
+/* line 72, ../scss/style.scss */
+ul, menu {
+  list-style-type: none;
+}
+
+/* line 76, ../scss/style.scss */
+a, button {
+  -webkit-transition-duration: 0.5s;
+  -moz-transition-duration: 0.5s;
+  -o-transition-duration: 0.5s;
+  transition-duration: 0.5s;
+}
+/* line 79, ../scss/style.scss */
+a:hover, button:hover {
+  -webkit-transition-duration: 0.5s;
+  -moz-transition-duration: 0.5s;
+  -o-transition-duration: 0.5s;
+  transition-duration: 0.5s;
+}
+
+/* line 87, ../scss/style.scss */
+.list-inline > * {
+  display: inline-block;
+}
+
+/* line 95, ../scss/style.scss */
+button:focus {
+  outline: none;
+}
+
+/* line 101, ../scss/style.scss */
+.container {
+  width: 100%;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  max-width: 980px;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+/* line 110, ../scss/style.scss */
+.inline-block {
+  display: inline-block;
+}
+
+/*
+*   Header BEGIN
+*/
+/* line 119, ../scss/style.scss */
+header {
+  background-color: #273a45;
+}
+/* line 122, ../scss/style.scss */
+header .container-fluid {
+  padding-right: 0;
+}
+
+/* line 133, ../scss/style.scss */
+.navbar.navbar-default {
+  margin-bottom: 0;
+  padding-top: 16px;
+  border: none;
+  background: none;
+  -webkit-border-radius: 0;
+  -moz-border-radius: 0;
+  -ms-border-radius: 0;
+  -o-border-radius: 0;
+  border-radius: 0;
+  min-height: 80px;
+}
+/* line 141, ../scss/style.scss */
+.navbar.navbar-default .navbar-header {
+  margin-right: 20px;
+}
+/* line 143, ../scss/style.scss */
+.navbar.navbar-default .navbar-header .navbar-brand {
+  height: auto;
+  margin: 0;
+  padding-top: 0;
+  padding-bottom: 0;
+  padding-left: 0;
+  vertical-align: middle;
+}
+/* line 152, ../scss/style.scss */
+.navbar.navbar-default .navbar-form {
+  margin: 3px 20px 0 45px;
+  max-width: 200px;
+  border: none;
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
+  padding: 0;
+}
+@media screen and (max-width: 991px) and (min-width: 768px) {
+  /* line 152, ../scss/style.scss */
+  .navbar.navbar-default .navbar-form {
+    float: left;
+    margin: 13px 20px 0 45px;
+  }
+}
+@media screen and (max-width: 768px) {
+  /* line 152, ../scss/style.scss */
+  .navbar.navbar-default .navbar-form {
+    width: 50%;
+    padding: 15px;
+    float: left;
+    margin: 0;
+    max-width: none;
+  }
+}
+/* line 169, ../scss/style.scss */
+.navbar.navbar-default .navbar-form .form-group {
+  line-height: 40px;
+  height: 40px;
+  width: 100%;
+  border: 1px solid #b9b9b9;
+  overflow: hidden;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
+  border-radius: 5px;
+}
+/* line 176, ../scss/style.scss */
+.navbar.navbar-default .navbar-form .form-group .input-group {
+  max-width: none;
+  width: 100%;
+}
+/* line 179, ../scss/style.scss */
+.navbar.navbar-default .navbar-form .form-group .input-group span {
+  background-color: white;
+  border: none;
+  -webkit-border-radius: 0;
+  -moz-border-radius: 0;
+  -ms-border-radius: 0;
+  -o-border-radius: 0;
+  border-radius: 0;
+  color: #777067;
+  font-size: 14px;
+}
+/* line 185, ../scss/style.scss */
+.navbar.navbar-default .navbar-form .form-group .input-group span label {
+  margin: 0;
+}
+/* line 188, ../scss/style.scss */
+.navbar.navbar-default .navbar-form .form-group .input-group span:first-child {
+  padding-right: 0;
+}
+/* line 191, ../scss/style.scss */
+.navbar.navbar-default .navbar-form .form-group .input-group span:last-child {
+  padding-left: 0;
+}
+/* line 194, ../scss/style.scss */
+.navbar.navbar-default .navbar-form .form-group .input-group span .fa-times-circle {
+  font-size: 20px;
+}
+/* line 199, ../scss/style.scss */
+.navbar.navbar-default .navbar-form .form-group .input-group button {
+  padding: 0;
+  background: none;
+  border: none;
+}
+/* line 203, ../scss/style.scss */
+.navbar.navbar-default .navbar-form .form-group .input-group button:focus {
+  border: none !important;
+  border-color: transparent !important;
+  outline: none;
+}
+/* line 210, ../scss/style.scss */
+.navbar.navbar-default .navbar-form .form-group .form-control {
+  width: 100%;
+  vertical-align: middle;
+  height: 40px;
+  line-height: 40px;
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
+  -webkit-border-radius: 0;
+  -moz-border-radius: 0;
+  -ms-border-radius: 0;
+  -o-border-radius: 0;
+  border-radius: 0;
+  border: none;
+}
+/* line 218, ../scss/style.scss */
+.navbar.navbar-default .navbar-form .form-group .form-control:focus {
+  border: none;
+}
+/* line 225, ../scss/style.scss */
+.navbar.navbar-default .nav.navbar-nav {
+  margin-top: 4px;
+}
+@media screen and (max-width: 768px) {
+  /* line 227, ../scss/style.scss */
+  .navbar.navbar-default .nav.navbar-nav.left {
+    text-align: center;
+  }
+}
+@media screen and (max-width: 991px) and (min-width: 768px) {
+  /* line 227, ../scss/style.scss */
+  .navbar.navbar-default .nav.navbar-nav.left {
+    float: left;
+    margin-top: 15px;
+  }
+}
+@media screen and (max-width: 768px) {
+  /* line 236, ../scss/style.scss */
+  .navbar.navbar-default .nav.navbar-nav.right {
+    width: 50%;
+    padding: 15px;
+    float: left;
+    text-align: right;
+    margin: 0;
+  }
+}
+@media screen and (max-width: 991px) and (min-width: 768px) {
+  /* line 236, ../scss/style.scss */
+  .navbar.navbar-default .nav.navbar-nav.right {
+    float: right;
+    margin-top: 15px;
+  }
+}
+/* line 249, ../scss/style.scss */
+.navbar.navbar-default .nav.navbar-nav li {
+  height: 40px;
+  width: 95px;
+  margin-right: 3px;
+  line-height: 40px;
+  display: inline-block;
+  background-color: transparent;
+  -webkit-border-radius: 2px;
+  -moz-border-radius: 2px;
+  -ms-border-radius: 2px;
+  -o-border-radius: 2px;
+  border-radius: 2px;
+}
+/* line 257, ../scss/style.scss */
+.navbar.navbar-default .nav.navbar-nav li.active, .navbar.navbar-default .nav.navbar-nav li:hover {
+  background-color: #3aa7e2;
+}
+/* line 10, ../scss/_my_mixins.scss */
+.navbar.navbar-default .nav.navbar-nav li.active {
+  position: relative;
+}
+/* line 12, ../scss/_my_mixins.scss */
+.navbar.navbar-default .nav.navbar-nav li.active:after {
+  content: "";
+  position: absolute;
+  display: block;
+  width: 0;
+  height: 0;
+  border: 0px solid transparent;
+  z-index: 100;
+  border-top: 7px solid #273a45;
+  border-left-width: 6.5px;
+  border-right-width: 6.5px;
+  position: absolute;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+  -moz-transform: translateX(-50%);
+  -ms-transform: translateX(-50%);
+  -o-transform: translateX(-50%);
+  transform: translateX(-50%);
+  top: 150%;
+}
+/* line 267, ../scss/style.scss */
+.navbar.navbar-default .nav.navbar-nav li.sign-out a {
+  color: #f7ad15;
+}
+/* line 269, ../scss/style.scss */
+.navbar.navbar-default .nav.navbar-nav li.sign-out a:hover {
+  color: white;
+}
+/* line 273, ../scss/style.scss */
+.navbar.navbar-default .nav.navbar-nav li.avatar {
+  width: 40px;
+}
+/* line 275, ../scss/style.scss */
+.navbar.navbar-default .nav.navbar-nav li.avatar:not(:hover) {
+  background-color: #37505f;
+}
+/* line 279, ../scss/style.scss */
+.navbar.navbar-default .nav.navbar-nav li a {
+  padding: 0;
+  vertical-align: middle;
+  line-height: 40px;
+  text-align: center;
+  height: 100%;
+  width: 100%;
+  background-color: transparent;
+  color: white;
+}
+
+/*
+*   Header END
+*/
+/*
+*   content BEGIN
+*/
+/* line 303, ../scss/style.scss */
+.controls {
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+
+/* line 310, ../scss/style.scss */
+.circle-btn, .cancel {
+  font-size: 20px;
+  color: #dcdfe3;
+  margin-left: 2px;
+  margin-right: 3px;
+  height: 40px;
+  width: 40px;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  -ms-border-radius: 50%;
+  -o-border-radius: 50%;
+  border-radius: 50%;
+  background-color: #4f5d73;
+  border: none;
+  -webkit-box-shadow: 0px 3px 5px 0px rgba(1, 1, 1, 0.23);
+  -moz-box-shadow: 0px 3px 5px 0px rgba(1, 1, 1, 0.23);
+  box-shadow: 0px 3px 5px 0px rgba(1, 1, 1, 0.23);
+  line-height: 40px;
+  vertical-align: middle;
+  text-align: center;
+}
+
+/* line 327, ../scss/style.scss */
+.publish {
+  width: 95px;
+  height: 40px;
+  background-color: #639f4f;
+  -webkit-border-radius: 2px;
+  -moz-border-radius: 2px;
+  -ms-border-radius: 2px;
+  -o-border-radius: 2px;
+  border-radius: 2px;
+  border: none;
+  color: white;
+  -webkit-box-shadow: 0px 3px 5px 0px rgba(1, 1, 1, 0.23);
+  -moz-box-shadow: 0px 3px 5px 0px rgba(1, 1, 1, 0.23);
+  box-shadow: 0px 3px 5px 0px rgba(1, 1, 1, 0.23);
+}
+
+/* line 338, ../scss/style.scss */
+.cancel {
+  background-color: #c75c5e;
+  font-size: 28px;
+  font-weight: 600;
+}
+
+/* line 347, ../scss/style.scss */
+.radio:not(:last-child) {
+  margin-bottom: 15px;
+}
+/* line 350, ../scss/style.scss */
+.radio input[type=radio] {
+  display: none;
+}
+/* line 353, ../scss/style.scss */
+.radio input[type=radio] + label {
+  padding-left: 22px;
+  vertical-align: middle;
+  position: relative;
+  display: inline-block;
+  color: black;
+  font: 15px/20px "IdealistSans";
+}
+/* line 361, ../scss/style.scss */
+.radio input[type=radio] + label span:first-child {
+  display: block;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  -ms-border-radius: 50%;
+  -o-border-radius: 50%;
+  border-radius: 50%;
+  border: 1px solid #bbb;
+  width: 16px;
+  height: 16px;
+  position: absolute;
+  background-color: #fff;
+  top: 0.56em;
+  left: 0;
+  -webkit-transform: translateY(-50%);
+  -moz-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  -o-transform: translateY(-50%);
+  transform: translateY(-50%);
+}
+/* line 373, ../scss/style.scss */
+.radio input[type=radio] + label span:first-child:before {
+  content: "";
+  display: block;
+  opacity: 0;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  -ms-border-radius: 50%;
+  -o-border-radius: 50%;
+  border-radius: 50%;
+  background-color: #447ac2;
+  width: 6px;
+  height: 6px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  -moz-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  -o-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+/* line 390, ../scss/style.scss */
+.radio input[type=radio]:checked + label span:before {
+  opacity: 1;
+}
+
+/* line 398, ../scss/style.scss */
+.checkbox input {
+  display: none;
+}
+/* line 402, ../scss/style.scss */
+.checkbox label {
+  padding-left: 0;
+  display: inline-block;
+  vertical-align: middle;
+  color: black;
+  font: 15px/20px "IdealistSans";
+}
+/* line 409, ../scss/style.scss */
+.checkbox label:before {
+  display: inline-block;
+  width: 19px;
+  height: 19px;
+  border: 1px solid #b3baba;
+  font: 14px/17px "fontawesome-webfont";
+  color: transparent;
+  text-align: center;
+  vertical-align: baseline;
+  background-color: #fff;
+  margin-right: 10px;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  -ms-border-radius: 4px;
+  -o-border-radius: 4px;
+  border-radius: 4px;
+}
+/* line 425, ../scss/style.scss */
+.checkbox input:checked + label:before {
+  color: #0d9d14;
+}
+
+/* line 431, ../scss/style.scss */
+.form-group {
+  padding-bottom: 4px;
+  width: 100%;
+  max-width: 200px;
+  box-sizing: border-box;
+}
+/* line 437, ../scss/style.scss */
+.form-group.inline-block {
+  vertical-align: middle;
+}
+/* line 441, ../scss/style.scss */
+.form-group.example-text {
+  margin-bottom: 0;
+}
+/* line 445, ../scss/style.scss */
+.form-group input[type=text].form-control, .form-group .example-input-text.form-control {
+  background-color: #ffffff;
+  height: 40px;
+  width: 100%;
+  border: 1px solid #b9b9b9;
+  line-height: 40px;
+  vertical-align: middle;
+  padding: 10px;
+  padding-left: 22px;
+  font: 13px "PT_Sans-Web-Regular";
+}
+/* line 456, ../scss/style.scss */
+.form-group input[type=text].form-control:focus, .form-group .example-input-text.form-control:focus {
+  cursor: text;
+}
+/* line 460, ../scss/style.scss */
+.form-group input[type=text].form-control .placeholder, .form-group .example-input-text.form-control .placeholder {
+  color: #999;
+}
+
+/* line 468, ../scss/style.scss */
+[data-drag=true], [data-drag=true] * {
+  cursor: pointer;
+}
+/* line 471, ../scss/style.scss */
+[data-drag=true]:active, [data-drag=true] *:active {
+  cursor: move !important;
+}
+
+/* line 478, ../scss/style.scss */
+.rating {
+  padding: 10px 10px;
+  display: inline-block;
+  -webkit-border-radius: 50px;
+  -moz-border-radius: 50px;
+  -ms-border-radius: 50px;
+  -o-border-radius: 50px;
+  border-radius: 50px;
+}
+/* line 483, ../scss/style.scss */
+.rating * {
+  outline: none;
+}
+/* line 487, ../scss/style.scss */
+.rating i {
+  font-size: 25px;
+  margin-right: 26px;
+  font-weight: bold;
+  color: #82a2a0;
+}
+/* line 492, ../scss/style.scss */
+.rating i:last-child {
+  margin-right: 0;
+}
+
+/* line 499, ../scss/style.scss */
+.example-select-drag {
+  max-width: 200px;
+  width: 100%;
+}
+
+/* line 504, ../scss/style.scss */
+.ui-select-container {
+  max-width: 200px;
+  width: 100%;
+  font: 13px "PT_Sans-Web-Regular";
+}
+/* line 509, ../scss/style.scss */
+.ui-select-container.example {
+  margin-right: 12px;
+}
+/* line 513, ../scss/style.scss */
+.ui-select-container.inline-block {
+  vertical-align: middle;
+}
+/* line 517, ../scss/style.scss */
+.ui-select-container .selectize-input {
+  padding: 10px;
+  padding-left: 22px;
+}
+/* line 522, ../scss/style.scss */
+.ui-select-container .ui-select-choices {
+  z-index: 3;
+}
+
+/* line 528, ../scss/style.scss */
+.view {
+  background-color: #f5f5f5;
+}
+/* line 531, ../scss/style.scss */
+.view .controls {
+  margin-bottom: 60px;
+}
+/* line 535, ../scss/style.scss */
+.view .question {
+  padding: 7px;
+  margin-bottom: 10px;
+  border: 2px solid transparent;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  -ms-border-radius: 3px;
+  -o-border-radius: 3px;
+  border-radius: 3px;
+}
+/* line 541, ../scss/style.scss */
+.view .question.current-edit {
+  border-color: #273a45;
+}
+/* line 10, ../scss/_my_mixins.scss */
+.view .question.current-edit {
+  position: relative;
+}
+/* line 12, ../scss/_my_mixins.scss */
+.view .question.current-edit:after {
+  content: "";
+  position: absolute;
+  display: block;
+  width: 0;
+  height: 0;
+  border: 0px solid transparent;
+  z-index: 100;
+  border-left: 5px solid #273a45;
+  border-top-width: 5px;
+  border-bottom-width: 5px;
+  position: absolute;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  -moz-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  -o-transform: translateY(-50%);
+  transform: translateY(-50%);
+  left: calc(100% + 2px);
+}
+/* line 549, ../scss/style.scss */
+.view .question .q-title {
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  -ms-border-radius: 3px;
+  -o-border-radius: 3px;
+  border-radius: 3px;
+  background-color: #bae6e3;
+  position: relative;
+  padding: 13px 15px 13px 36px;
+  font-size: 13px;
+  line-height: 1.2em;
+  color: #273a45;
+}
+/* line 558, ../scss/style.scss */
+.view .question .q-title .icon {
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 26px;
+  background-color: #a4cbc8;
+  -webkit-border-radius: 3px 0 0 3px;
+  -moz-border-radius: 3px 0 0 3px;
+  -ms-border-radius: 3px 0 0 3px;
+  -o-border-radius: 3px 0 0 3px;
+  border-radius: 3px 0 0 3px;
+}
+/* line 567, ../scss/style.scss */
+.view .question .q-title .icon:after {
+  content: '';
+  display: block;
+  position: absolute;
+  height: 0;
+  width: 0;
+  border: 7px solid transparent;
+  border-left-color: white;
+  border-right-width: 0;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  -moz-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  -o-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+/* line 584, ../scss/style.scss */
+.view .question .q-body {
+  font-size: 15px;
+  color: black;
+  padding-left: 38px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+/* line 596, ../scss/style.scss */
+.edit {
+  background-color: #ebe9e9;
+  padding-bottom: 28px;
+}
+/* line 600, ../scss/style.scss */
+.edit .field {
+  padding-bottom: 18px;
+}
+/* line 606, ../scss/style.scss */
+.edit .f-title {
+  margin-top: 3px;
+  margin-bottom: -3px;
+  position: relative;
+  z-index: 1;
+}
+/* line 612, ../scss/style.scss */
+.edit .f-title span {
+  background-color: #273a45;
+  color: white;
+  font: 14px "IdealistSans";
+  height: 30px;
+  line-height: 30px;
+  vertical-align: middle;
+  padding: 0 17px;
+  -webkit-border-radius: 4px 4px 0 0;
+  -moz-border-radius: 4px 4px 0 0;
+  -ms-border-radius: 4px 4px 0 0;
+  -o-border-radius: 4px 4px 0 0;
+  border-radius: 4px 4px 0 0;
+}
+/* line 625, ../scss/style.scss */
+.edit .f-body {
+  padding: 18px;
+  font-size: 13px;
+  line-height: 1.5em;
+  color: #273a45;
+  border: 1px solid #b9b9b9;
+  background-color: #fff;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  -ms-border-radius: 3px;
+  -o-border-radius: 3px;
+  border-radius: 3px;
+}
+/* line 635, ../scss/style.scss */
+.edit .f-body [contenteditable] {
+  display: inline-block;
+}
+/* line 643, ../scss/style.scss */
+.edit .f-body.dashed {
+  background-clip: padding-box;
+  border: 2px dashed #777676;
+}
+/* line 650, ../scss/style.scss */
+.edit .f-body.bgc-gray {
+  background-color: #f5f5f5;
+}
+/* line 654, ../scss/style.scss */
+.edit .f-body p[contenteditable] {
+  padding: 0;
+  margin: 0;
+  width: 100%;
+  max-width: 380px;
+  min-height: 20px;
+}
+/* line 665, ../scss/style.scss */
+.edit .f-body.widgets .rating {
+  background-color: #efefef;
+  -webkit-box-shadow: inset 0px 1px 2px 0px #cccccc, inset 0px -1px 2px 0px white;
+  -moz-box-shadow: inset 0px 1px 2px 0px #cccccc, inset 0px -1px 2px 0px white;
+  box-shadow: inset 0px 1px 2px 0px #cccccc, inset 0px -1px 2px 0px white;
+}
+/* line 673, ../scss/style.scss */
+.edit .f-body.keywords .form-group {
+  display: inline-block;
+  width: auto;
+}
+/* line 677, ../scss/style.scss */
+.edit .f-body.keywords .form-group .form-control {
+  width: auto;
+  display: inline-block;
+}
+/* line 684, ../scss/style.scss */
+.edit .f-body .right-btns {
+  margin-top: -10px;
+  margin-right: -10px;
+}
+/* line 688, ../scss/style.scss */
+.edit .f-body .right-btns i {
+  font-size: 14px;
+  color: #4f5d73;
+  cursor: pointer;
+}
+/* line 693, ../scss/style.scss */
+.edit .f-body .right-btns i.fa-2x {
+  font-size: 30px;
+}
+/* line 697, ../scss/style.scss */
+.edit .f-body .right-btns i:first-child {
+  margin-right: 15px;
+}
+/* line 701, ../scss/style.scss */
+.edit .f-body .right-btns i:only-child {
+  margin-top: 10px;
+}
+
+/*
+*   content END
+*/

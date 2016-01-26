@@ -1,0 +1,87 @@
+@mixin placeholder {
+  &::-webkit-input-placeholder {@content}
+  &:-moz-placeholder           {@content}
+  &::-moz-placeholder          {@content}
+  &:-ms-input-placeholder      {@content}  
+};
+
+
+@mixin triangle($type,$color,$width,$height) {
+	&{position: relative;}
+	&:after
+	{
+		content: "";
+		position: absolute;
+		display: block;
+		width: 0;
+		height: 0;
+		border: 0px solid transparent;
+		z-index: 100;
+		@if $type == 'top' or $type == 'bottom' {
+			border-#{$type}: $height solid $color;
+			border-left-width: $width / 2;
+			border-right-width: $width / 2;
+		}
+		@if $type == 'left' or $type == 'right'{
+			border-#{$type}: $width solid $color;
+			border-top-width: $height / 2;
+			border-bottom-width: $height / 2;
+		}
+		@content;
+	}
+}
+
+@mixin center-abs($type:'horizontal'){
+	//{position: relative;}
+	position: absolute;
+	@if $type == 'horizontal' or $type == 'h' {
+		left: 50%;
+		@include translateX(-50%);
+	}
+	@if $type == 'vertical' or $type == 'v' {
+		top: 50%;
+		@include translateY(-50%);
+	}
+	@if $type == 'both' or $type == 'b' {
+		left: 50%;
+		top: 50%;
+		@include translate(-50%,-50%);
+	}
+	@content;
+}
+
+
+@mixin play-button($shadow-width,$shadow-color) {
+
+	position: relative;
+	top: 0;
+	margin-bottom: $shadow-width;
+
+	@include box-shadow(0px $shadow-width 0px 0px $shadow-color,0px 0px 0px 0px $shadow-color inset);
+	@include transition(all 0.1s);
+
+	&:active
+	{
+		@include box-shadow(0px 0px 0px 0px $shadow-color,0px $shadow-width/2 0px 0px $shadow-color inset);
+		@include transition(all 0.1s);
+		top: $shadow-width/2;
+	}
+};
+
+@mixin browser($browser) {
+	@if $browser == ms {
+		@media screen and (-ms-high-contrast: active) and (-ms-high-contrast: black-on-white) and (-ms-high-contrast: white-on-black) and (-ms-high-contrast: none){
+			&{@content;}
+		}
+	}
+	@if $browser == moz {
+		@media screen and (min--moz-device-pixel-ratio: 0){
+			&{@content;}
+		}
+	}
+	@if $browser == webkit {
+		@media screen and (-webkit-min-device-pixel-ratio:0){
+			&{@content;}
+		}
+	}
+}

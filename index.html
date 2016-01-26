@@ -1,0 +1,291 @@
+<!doctype html>
+<html ng-app="odilinkApp">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="css/bootstrap-custom.css"/>
+    <link rel="stylesheet" href="css/font-awesome.min.css"/>
+    <link rel="stylesheet" href="bower_components/angular/angular-csp.css"/>
+    <link rel="stylesheet" type="text/css" href="bower_components/angular-ui-select/dist/select.css">
+    <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/selectize.js/0.8.5/css/selectize.default.css">
+    <link rel="stylesheet" href="bower_components/jquery-ui/themes/ui-lightness/jquery-ui.min.css"/>
+    <link rel="stylesheet" href="css/style.css"/>
+
+    <!--
+        IE8 support, see AngularJS Internet Explorer Compatibility http://docs.angularjs.org/guide/ie
+        For Firefox 3.6, you will also need to include jQuery and ECMAScript 5 shim
+    -->
+    <!--[if lt IE 9]>
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.js"></script>
+        <script src="http://cdnjs.cloudflare.com/ajax/libs/es5-shim/2.2.0/es5-shim.js"></script>
+        <script>
+          document.createElement('ui-select');
+          document.createElement('ui-select-match');
+          document.createElement('ui-select-choices');
+        </script>
+    <![endif]-->
+    <title>Odilink</title>
+</head>
+<body ng-controller="mainCtrl">
+
+    <header>
+        <div class="container">
+            <nav class="navbar navbar-default" role="navigation">
+                <div ng-controller="CollapseDemoCtrl">
+                    <!-- Brand and toggle get grouped for better mobile display -->
+                    <div class="navbar-header" >
+                        <button type="button" class="navbar-toggle collapsed" ng-click="isCollapsed = !isCollapsed">
+                            <span class="sr-only">Toggle navigation</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                        <a class="navbar-brand" href="#"><img src="img/logo.png"></a>
+                    </div>
+
+                    <!-- Collect the nav links, forms, and other content for toggling -->
+                    <div class="collapse navbar-collapse" collapse="isCollapsed">
+                        <ul class="nav navbar-nav left">
+                            <li class="active"><a href="#">Create <span class="sr-only">(current)</span></a></li>
+                            <li><a href="#">Report</a></li>
+                            <li><a href="#">Profile</a></li>
+                        </ul>
+                        <form class="navbar-form navbar-left" role="search" action="" method="GET">
+                            <div class="form-group">
+                                <div class="input-group">
+                                    <span class="input-group-addon"><label for="search"><i class="fa fa-search"></i></label></span>
+                                    <input type="text" class="form-control" id="search" name="search" placeholder="Search">
+                                    <span class="input-group-addon"><button type="reset"><i class="fa fa-times-circle"></i></button></span>
+                                </div>
+                            </div>
+                            <!-- <button type="submit" class="btn btn-default">Submit</button> -->
+                        </form>
+                        <ul class="nav navbar-nav navbar-right right">
+                            <li class="avatar"><a href="#"><img src="img/avatar.png"></a></li>
+                            <li class="sign-out"><a href="#">SignOut</a></li>
+                        </ul>
+                    </div><!-- /.navbar-collapse -->
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <div class="container main-content">
+        <div class="row">
+
+            <!-- view fields -->
+            <div class="col-md-6 view">
+                <div class="controls">
+                    <button class="circle-btn"><i class="fa fa-pencil"></i></button>
+                    <button class="circle-btn"><i class="fa fa-arrow-circle-right"></i></button>
+                    <button class="circle-btn"><i class="fa fa-save"></i></button>
+                    <button class="circle-btn"><i class="fa fa-print"></i></button>
+                    <button class="publish pull-right">Publish</button>
+                </div>
+
+                <!-- question 1 -->
+                <div class="question" 
+                    ng-repeat="question in jsonObj.questions" 
+                    ng-init="question.edit = $first ? true : false;" 
+                    ng-click="editMode($index);" 
+                    ng-class="question.edit ? 'current-edit' : ''" >
+
+                    <div class="q-title">
+                        <div class="icon "></div>
+                        <div class="text" ng-bind-html="question.title"></div>
+                    </div>
+                    <div class="q-body">
+                        <div ng-repeat="bodyField in question.body">
+                                <div ng-init="fieldType = bodyField.type; fieldIndex = $index+1;" ng-include="fieldType+'.html'"></div>
+                        </div>
+                        <!-- radio template -->
+                        <script type="text/ng-template" id="radio.html">
+                            <div class="radio" ng-repeat="option in bodyField.options">
+                                <input type="radio" name="question-{{question.id}}" id="q-{{question.id}}-{{fieldIndex}}-{{$index+1}}" value="{{option.value}}">
+                                <label for="q-{{question.id}}-{{fieldIndex}}-{{$index+1}}"><span></span><span ng-bind-html="option.title"></span></label>
+                            </div>
+                        </script>
+                        <!-- rating template -->
+                        <script type="text/ng-template" id="rating.html">
+                            <div ng-init="rating[question.id] = 0" class="rating"><rating ng-model="rating[question.id]" max="bodyField.options[0].max" state-on="'fa fa-star'" state-off="'fa fa-star-o'"></rating></div>
+                        </script>
+                        <!-- select template -->
+                        <script type="text/ng-template" id="select.html">
+                            <ui-select ng-model="question4.selected" theme="selectize">
+                                <ui-select-match placeholder="Select or search">{{$select.selected.title}}</ui-select-match>
+                                <ui-select-choices repeat="option in bodyField.options | filter: $select.search">
+                                  <span ng-bind-html="option.title | highlight: $select.search"></span>
+                                </ui-select-choices>
+                            </ui-select>
+                        </script>
+                        <!-- checkbox template -->
+                        <script type="text/ng-template" id="checkbox.html">
+                            <div class="checkbox" ng-repeat="option in bodyField.options">
+                                <input type="checkbox" id="q-{{question.id}}-{{fieldIndex}}-{{$index+1}}" name="q-{{question.id}}-{{fieldIndex}}[]" value="{{option.value}}"> 
+                                <label for="q-{{question.id}}-{{fieldIndex}}-{{$index+1}}" class="fa fa-check"><span ng-bind-html="option.title"></span></label>
+                            </div>
+                        </script>
+                        <!-- input text template -->
+                        <script type="text/ng-template" id="text.html">
+                            <div class="form-group inline-block example-text" data-drag="true" jqyoui-draggable>
+                                <input type="text" ng-model="some" class="form-control" placeholder="{{bodyField.options[0].placeholder}}">
+                            </div>
+                        </script>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Edit fields -->
+            <div class="col-md-6 edit" ng-repeat="question in jsonObj.questions | filter: {edit: true}">
+                <div class="controls">
+                    <button class="circle-btn"><i class="fa fa-arrow-circle-left"></i></button>
+                    <button class="circle-btn"><i class="fa fa-arrow-circle-right"></i></button>
+                    <button class="circle-btn"><i class="fa fa-plus-circle"></i></button>
+                    <button class="circle-btn"><i class="fa fa-trash-o"></i></button>
+                    <button class="cancel pull-right"><i class="fa fa-times"></i></button>
+                </div>
+                <div class="field">
+                    <div class="f-title clearfix"><span class="pull-right">Question: {{question.id}}</span></div>
+                    <div class="f-body">
+                        <div class="right-btns pull-right"><i class="fa fa-reply"></i><i class="fa fa-share"></i></div>
+                        <p  contenteditable ng-model="question.title"
+                            strip-br="true"
+                            required></p>
+                    </div>
+                </div>
+                <div class="field">
+                    <div class="f-body dashed" data-drop="true" jqyoui-droppable="{multiple:true}" ng-model="question.body">
+                        <div class="right-btns pull-right"><i class="fa fa-reply"></i><i class="fa fa-share"></i></div>
+                        <div ng-repeat="bodyField in question.body">
+                                <div ng-init="fieldType = bodyField.type; fieldIndex = $index+1;" ng-include="fieldType+'-edit.html'"></div>
+                        </div>
+                        <!-- radio template -->
+                        <script type="text/ng-template" id="radio-edit.html">
+                            <div class="radio" ng-repeat="option in bodyField.options">
+                                <input type="radio" name="question-{{question.id}}-edit" id="qe-{{question.id}}-{{fieldIndex}}-{{$index+1}}" value="{{option.value}}">
+                                <label for="qe-{{question.id}}-{{fieldIndex}}-{{$index+1}}"><span></span><span contenteditable strip-br="true" ng-model="option.title"></span></label>
+                            </div>
+                        </script>
+                        <!-- rating template -->
+                        <script type="text/ng-template" id="rating-edit.html">
+                            <div ng-init="rating[question.id] = 0" class="rating"><rating ng-model="rating[question.id]" max="bodyField.options[0].max" state-on="'fa fa-star'" state-off="'fa fa-star-o'"></rating></div>
+                        </script>
+                        <!-- select template -->
+                        <script type="text/ng-template" id="select-edit.html">
+                            <ui-select ng-model="question4.selected" theme="selectize">
+                                <ui-select-match placeholder="Select or search">{{$select.selected.title}}</ui-select-match>
+                                <ui-select-choices repeat="option in bodyField.options | filter: $select.search">
+                                  <span contenteditable strip-br="true" no-enter="true" ng-model="option.title" ng-bind-html="option.title | highlight: $select.search"></span>
+
+                                </ui-select-choices>
+                            </ui-select>
+                        </script>
+                        <script type="text/ng-template" id="checkbox-edit.html">
+                            <div class="checkbox" ng-repeat="option in bodyField.options">
+                                <input type="checkbox" id="qe-{{question.id}}-{{fieldIndex}}-{{$index+1}}" name="q-{{question.id}}-{{fieldIndex}}[]" value="{{option.value}}"> 
+                                <label for="qe-{{question.id}}-{{fieldIndex}}-{{$index+1}}" class="fa fa-check"><span contenteditable strip-br="true" ng-model="option.title"></span></label>
+                            </div>
+                        </script>
+                        <script type="text/ng-template" id="text-edit.html">
+                            <div class="form-group inline-block example-text" data-drag="true" jqyoui-draggable>
+                                <input type="text" ng-model="bodyField.options[0].placeholder" class="form-control" placeholder="write placeholder this">
+                            </div>
+                        </script>
+                    </div>
+                </div>
+                <div class="field">
+                    <div class="f-title clearfix"><span class="pull-right">Answer widget:</span></div>
+                    <div class="f-body widgets bgc-gray">
+                        <div class="right-btns pull-right"><i class="fa fa-plus-circle fa-2x"></i></div>
+                        <div ng-init="y = 0;" class="rating">
+                            <div 
+                                data-drag="true" 
+                                jqyoui-draggable="{index: {{$index}}, animate: true, placeholder: 'keep'}"
+                                data-jqyoui-options="{revert: 'invalid', helper: 'clone'}"
+                                ng-model="exampleObj[0]">
+                                <rating ng-model="y" max="5" state-on="'fa fa-star'" state-off="'fa fa-star-o'"></rating>
+                            </div>
+                        </div><br>
+                        <div class="radio inline-block" 
+                                data-drag="true" 
+                                jqyoui-draggable="{index: {{$index}}, animate: true, placeholder: 'keep'}"
+                                data-jqyoui-options="{revert: 'invalid', helper: 'clone'}"
+                                ng-model="exampleObj[1]">
+                            <input type="radio" name="example-radio" id="example-radio" value="option1">
+                            <label for="example-radio"><span></span>Radio Button</label>
+                        </div>
+                        <div class="checkbox inline-block"
+                                data-drag="true" 
+                                jqyoui-draggable="{index: {{$index}}, animate: true, placeholder: 'keep'}"
+                                data-jqyoui-options="{revert: 'invalid', helper: 'clone'}"
+                                ng-model="exampleObj[2]">
+                            <input type="checkbox" id="checkbox-example"> 
+                            <label for="checkbox-example" class="fa fa-check">CheckBox</label>
+                        </div>
+                        <div
+                            data-drag="true" 
+                            jqyoui-draggable="{index: {{$index}}, placeholder: 'keep'}"
+                            data-jqyoui-options="{revert: 'invalid', helper: 'clone'}"
+                            ng-model="exampleObj[3]" 
+                            class="inline-block example-select-drag">
+                            <ui-select 
+                                    theme="selectize" 
+                                    ng-model="exampleObj[3].selected" 
+                                    class="inline-block example">
+                                <ui-select-match placeholder="Select or search">{{$select.selected.name}}</ui-select-match>
+                                <ui-select-choices repeat="option in selectExample.options | filter: $select.search">
+                                  <span ng-bind-html="option.name | highlight: $select.search"></span>
+                                </ui-select-choices>
+                            </ui-select>
+                        </div>
+                        <div class="form-group inline-block example-text" 
+                            data-drag="true" 
+                            jqyoui-draggable="{index: {{$index}}, placeholder: 'keep'}"
+                            data-jqyoui-options="{revert: 'invalid', helper: 'clone'}"
+                            ng-model="exampleObj[4]" >
+                            <!-- <input type="text" ng-model="some" class="form-control" placeholder="TextInput"> -->
+                            <div class="example-input-text form-control" style="min-width: 100%; height: 40px;"><span class="placeholder">TextInput</span></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="field">
+                    <div class="f-title clearfix"><span class="pull-right">Keywords</span></div>
+                    <div class="f-body keywords bgc-gray">
+                        <div class="right-btns pull-right"><i class="fa fa-plus-circle fa-2x"></i></div>
+                        <div class="form-group inline-block example-text">
+                            <input type="text" class="form-control" placeholder="TextInput">
+                        </div>
+                        <div class="form-group inline-block example-text">
+                            <input type="text" class="form-control" placeholder="TextInput">
+                        </div>
+                        <div class="form-group inline-block example-text">
+                            <input type="text" class="form-control" placeholder="TextInput">
+                        </div>
+                        <div class="form-group inline-block example-text">
+                            <input type="text" class="form-control" placeholder="TextInput">
+                        </div>
+                    </div>
+                </div>
+                <div class="field">
+                    <div class="f-title clearfix"><span class="pull-right">Notes</span></div>
+                    <div class="f-body">
+                        <p contenteditable strip-br="true" ng-model="question.notes">Notes</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+    <!--scripts-->
+    <script src="bower_components/jquery/dist/jquery.js"></script>
+    <script src="bower_components/angular/angular.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.18/angular-sanitize.js"></script>
+    <script src="bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
+    <script src="bower_components/angular-ui-select/dist/select.js"></script>
+    <script src="bower_components/jquery-ui/jquery-ui.min.js"></script>
+    <script src="bower_components/angular-dragdrop/src/angular-dragdrop.min.js"></script>
+    <script src="js/scripts.js"></script>
+</body>
+</html>
